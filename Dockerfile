@@ -4,7 +4,7 @@
 # See the file LICENSE for copying permission.
 
 FROM ubuntu:14.04
-MAINTAINER cardeois@iweb.com
+MAINTAINER molton@jawbone.com
 
 # make sure the package repository is up to date
 RUN apt-get update
@@ -17,6 +17,7 @@ RUN apt-get install -y python-dev python-pip python-setuptools fabric supervisor
 # Install gosu
 RUN curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" && chmod +x /usr/local/bin/gosu
 
+VOLUME /home
 # Configure a localshop user
 # Prepare user and directories
 RUN addgroup --system localshop
